@@ -1,0 +1,302 @@
+.content-body {
+    background-color: var(--white);
+    height: 100%;
+}
+
+.list-body-content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+}
+
+.list-body-top {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: var(--white-r);
+    box-shadow: var(--box-shadow-2);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    display: flex;
+}
+
+.list-body-top {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.list-body-top .list-category-title .list-title {
+    text-align: left;
+    color: var(--white-g-l);
+    font-size: 24pt;
+    margin-bottom: 0;
+}
+
+.list-body-top .list-category-sub-title .list-sub-title {
+    margin-top: 0;
+    font-size: 16pt;
+    color: var(--blue-l-2);
+    text-align: left;
+}
+
+.list-body-middle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: var(--white-r);
+    box-shadow: var(--box-shadow-2);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.list-search-top {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    vertical-align: middle;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.search-dropdown-body {
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow-1);
+}
+
+.dropdown-box {
+    position: relative;
+}
+
+.dropdown-box select {
+    height: 35px;
+    padding: 0 12px;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid var(--white-g-l);
+    outline: none;
+    font-size: 10pt;
+    color: var(--white-g-l);
+}
+
+.dropdown-box::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    line-height: 35px;
+    background-color: var(--blue-l-3);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    pointer-events: none;
+    color: var(--white);
+}
+
+.dropdown-box:hover::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    line-height: 35px;
+    background-color: var(--blue-l-2);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    pointer-events: none;
+    color: var(--white);
+}
+
+.search-field-body {
+    width: 100%;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow-1);
+}
+
+.search-input-group {
+    display: flex;
+}
+
+.input-text {
+    width: 100%;
+    padding: 0 !important;
+    margin: 0;
+    height: 35px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid var(--white-g-l);
+}
+
+.input-text input {
+    width: 100%;
+    height: 35px;
+    padding-left: 20px;
+    outline: none;
+    margin: 0;
+    border-width: 0px;
+    position: relative;
+    color: var(--white-g-l);
+}
+
+.search-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -50%);
+    background-color: var(--blue-l-3);
+    height: 35px;
+    outline: none;
+    border: 5px solid var(--blue-l-3);
+    left: 100%;
+    width: 100px;
+}
+
+.search-btn:hover {
+    background-color: var(--blue-l-2);
+    border: 5px solid var(--blue-l-2);
+}
+
+.search-btn i {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    color: var(--white);
+}
+
+.search-btn span {
+    margin-left: -25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.list-table-body {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.new-element {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 0px 30px;
+}
+
+.new-element button {
+    background-color: rgb(109, 255, 109);
+    border: 1px solid rgb(109, 255, 109);
+    box-shadow: var(--box-shadow-2);
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 25px;
+    width: 100%;
+    font-size: 10pt;
+    text-transform: uppercase;
+    transition: all .3s ease-in-out;
+}
+
+.new-element button:hover {
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.list-body-bottom {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: var(--white-r);
+    box-shadow: var(--box-shadow-2);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginator-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.paginator-element {
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 1px var(--white-g-l);
+}
+
+.paginator-element a.paginator-target {
+    color: var(--white-g-l);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.paginator-element a.paginator-target i {
+    color: var(--white-g-l);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.paginator-element:hover {
+    box-shadow: 0px 0px 0px 3px var(--white-g);
+}
+
+.paginator-element:hover a.paginator-target {
+    color: var(--white-g);
+}
+
+.paginator-element:hover a.paginator-target i {
+    color: var(--white-g);
+}
+
+@media (min-width: 600px) {
+    .list-body-content {
+        width: 60%;
+    }
+    .new-element {
+        width: 140px;
+    }
+}
+
+@media (min-width: 800px) {
+    .list-search-top {
+        flex-direction: row;
+        gap: 20px;
+    }
+}

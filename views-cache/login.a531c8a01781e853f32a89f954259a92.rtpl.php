@@ -1,0 +1,48 @@
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../res/_css/index.css">
+    <link rel="stylesheet" href="../../res/_css/response.css">
+    <link rel="stylesheet" href="../../res/_css/simple-grid.min.css">
+    <title>Login Gremio-APP</title>
+</head>
+
+<body>
+    <div class="box-bg">
+        <div class="input-box">
+            <div class="input-box-header">
+                <div class="input-box-title">
+                    <div class="box-title">
+                        Login
+                    </div>
+                    <div class="box-sub-title">
+                        Gremio-APP
+                    </div>
+                </div>
+            </div>
+            <div class="input-box-body">
+                <form action="admin/login" class="box-form-group" method="post">
+                    <div class="box-input-group">
+                        <label for="user_login" class="label-input">Usuario</label>
+                        <input type="text" class="text-input" id="user_login" name="user_login">
+                    </div>
+                    <div class="box-input-group">
+                        <label for="user_password" class="label-input">Senha</label>
+                        <input type="password" class="text-input" id="user_password" name="user_password">
+                    </div>
+                    <div class="input-box-action">
+                        <button class="done">Login</button>
+                        <a href="/forgot" class="action">Esqueci a senha</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

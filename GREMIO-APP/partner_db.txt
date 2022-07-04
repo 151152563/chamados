@@ -1,0 +1,44 @@
+-Partner {
+    #partner_id
+    #partner_uniquetag
+    partner_fullname
+    partner_cpf
+    partner_identity
+    partner_dtnasc
+    partner_resphone
+    partner_mobphone
+    #partner_age
+    partner_email
+    partner_milorganization
+    partner_assoctype
+    #partner_dtregiser
+    #partner_dtlastupdate
+    #partner_status
+    partner_paymentday
+    partner_monthlypayment
+}
+-Dependent {
+    dependent_id 
+    partner_id 
+    dependent_uniquetag 
+    dependent_fullname 
+    dependent_cpf 
+    dependent_dtnasc 
+    dependent_identity 
+    dependent_mobphone 
+    dependent_resphone 
+    dependent_email 
+    dependent_dtregister 
+    dependent_lastupdate 
+}
+
+-Payment {
+    payment_id
+    partner_name
+    payment_uniquetag
+    payment_payer
+    payment_note
+    payment_dtregister
+    payment_value
+    payment_method
+}

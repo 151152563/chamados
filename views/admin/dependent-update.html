@@ -1,0 +1,120 @@
+<div class="content-body">
+    <div class="row">
+        <div class="register-box">
+            <div class="title-box">
+                <h3>Atualizar Dependente</h3>
+            </div>
+            <div class="content-box">
+                <form action="" method="post" class="form-group">
+                    <div class="input-group">
+                        <label for="dependent_name" class="label-input">Nome completo <span class="mandatory">*</span></label>
+                        <input type="text" class="text-input" id="dependent_name" name="dependent_name" value="{$dependente.dependent_name}">
+                    </div>
+                    <div class="input-group">
+                        <label for="dependent_identity" class="label-input">Identidade</label>
+                        <input type="text" class="text-input" id="dependent_identity" name="dependent_identity" value="{$dependente.dependent_identity}">
+                    </div>
+                    <div class="input-group">
+                        <label for="dependent_cpf" class="label-input">CPF</label>
+                        <input type="text" class="text-input cpf" id="dependent_cpf" name="dependent_cpf" value="{$dependente.dependent_cpf}">
+                    </div>
+                    <div class="input-group">
+                        <label for="dependent_age" class="label-input">Idade <span class="mandatory">*</span></label>
+                        <input type="text" class="text-input" id="dependent_age" name="dependent_age" value="{$dependente.dependent_age}">
+                    </div>
+                    <div class="input-group">
+                        <label for="dependent_phone" class="label-input">Telefone</label>
+                        <input type="text" class="text-input telefone" id="dependent_phone" name="dependent_phone" value="{$dependente.dependent_phone}">
+                    </div>
+                    <div class="input-group">
+                        <label for="dependent_note" class="label-input">Observações</label>
+                        <input type="text" class="text-input" id="dependent_note" name="dependent_note" value="{$dependente.dependent_note}">
+                    </div>
+                    <div class="input-group">
+                        <label for="dependent_schooling" class="label-input">Escolaridade</label>
+                        <input type="text" class="text-input" id="dependent_schooling" name="dependent_schooling" value="{$dependente.dependent_schooling}">
+                    </div>
+                    <div class="input-check-group">
+                        <span class="title-check">Familiaridade ? <span class="mandatory">*</span></span>
+                        <div class="check-row">
+                            <div class="check-item">
+                                <label class="check-container">
+                                    <div class="check-legend">
+                                        cônjuge
+                                    </div>
+                                    <input class="checkbox-single" type="checkbox" name="conj" onclick="toggleFamiliarity(this)" {if="$familiaridade==='c'"}checked{/if}>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="check-item">
+                                <label class="check-container">
+                                    <div class="check-legend">
+                                        filho/filha
+                                    </div>
+                                    <input class="checkbox-single" type="checkbox" name="chil" onclick="toggleFamiliarity(this)" {if="$familiaridade==='f'"}checked{/if}>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="check-item">
+                                <label class="check-container">
+                                    <div class="check-legend">
+                                        pai/mãe
+                                    </div>
+                                    <input class="checkbox-single" type="checkbox" name="par" onclick="toggleFamiliarity(this)" {if="$familiaridade==='p'"}checked{/if}>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="check-item">
+                                <label class="check-container">
+                                    <div class="check-legend">
+                                        OUTROS
+                                    </div>
+                                    <input  class="checkbox-single toggle-input" type="checkbox" name="other" onclick="toggleFamiliarity(this)" {if="$familiaridade==='o'"}checked{/if}>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="others" class="label-input">Outro motivo</label>
+                            <input type="text" id="others" class="check-input text-input" name="others" {if="$familiaridade !='o'"}disabled{/if} value="{$dependente.dependent_familiarity}">
+                        </div>
+                    </div>
+                    <div class="form-mandatory">
+                        <p><span class="mandatory">*</span> Campos obrigatorios</p>
+                    </div>
+                    <div class="form-action">
+                        <button class="action-reset" type="reset">Cancelar</button>
+                        <button class="action-submit" type="submit">Salvar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function toggleFamiliarity(receviedElement) {
+
+        let checkboxes = document.querySelectorAll(".checkbox-single");
+        checkboxes.forEach(element => {
+            if (element != receviedElement) {
+                element.checked = false
+
+            }
+            if (receviedElement != null) {
+                let others = document.getElementById("others");
+                if (receviedElement.className.includes("toggle-input")) {
+                    others.disabled = false;
+                } else {
+                    others.disabled = true;
+                }
+
+
+            }
+
+        });
+    }
+</script>

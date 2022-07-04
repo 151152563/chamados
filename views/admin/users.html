@@ -1,0 +1,81 @@
+
+<div class="content-body">
+    <div class="list-body">
+        <div class="list-body-content">
+            <div class="list-body-top">
+                <div class="list-category-title">
+                    <h3 class="list-title">Usuarios</h3>
+                </div>
+                <div class="list-category-sub-title">
+                    <p class="list-sub-title">lista de usuarios</p>
+                </div>
+            </div>
+            <div class="list-body-middle">
+                <div class="list-search-top">
+                    <div class="search-dropdown-body">
+                        <div class="dropdown-box">
+                            <select name="cars" id="cars">
+                            <option value="volvo">Nome</option>
+                            <option value="saab">Identificador</option>
+                            <option value="mercedes">CPF</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="search-field-body">
+                        <div class="search-input-group">
+                            <div class="input-text">
+                                <input type="text" class="search-text-input" aria-label="teste">
+                                <button class="search-btn"><span>Buscar</span><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-table-body">
+                    <table>
+                        <thead>
+                            <th>Foto</th>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Ação</th>
+                        </thead>
+                        <tbody>
+                            {loop="$usuarios"}
+                            <tr>
+                                <td class="td-photo">
+                                    <div class="table-photo"><img src="{$value.user_profilepicture}" alt=""></div>
+                                </td>
+                                <td>{$value.user_name}</td>
+                                <td class="phone-mask">{$value.user_phone}</td>
+                                <td><a class="view" href="/admin/user/profile{$value.user_id}">Visualizar</a></td>
+                            </tr>
+                            {/loop}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="new-element">
+                    <a href="./user/create" class="new-element-button">
+                        <button>
+                            Incluir novo
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="list-body-bottom">
+                <div class="paginator-body">
+                    <div class="paginator-items">
+                        {loop="$pages"}
+                        <div class="paginator-element">
+                            <a href="{$value.link}" class="paginator-target">{$value.text}</a>
+                        </div>
+                        {/loop}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="_js/jquery-3.6.0.min.js"></script>
+<script src="_js/index.js"></script>
+
+</html>

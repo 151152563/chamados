@@ -1,0 +1,254 @@
+<div class="content-body">
+    <div class="profile-body">
+        <div class="entity-profile-card">
+            <div class="entity-profile-card-top card-category">
+
+                <div class="entity-img">
+                    <img src="{$socio.partner_profilepicture}" alt="" srcset="">
+                </div>
+
+                <div class="entity-title">
+                    <div class="entity-name">
+                        <h3>{$socio.partner_fullname}</h3>
+                    </div>
+                    <div class="entity-sub-info">
+                        <p>{$socio.partner_assoctype}</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="entity-profile-card-middle card-category">
+                <div class="entity-info sub-card-category">
+                    <div class="card-category-title">
+                        <h3>socio</h3>
+                    </div>
+                    <div class="info-items">
+
+                        <div class="info-box">
+                            <h3 class="info-title">Nome</h3>
+                            <h3 class="info-value">{$socio.partner_fullname}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Tag</h3>
+                            <h3 class="info-value">{$socio.partner_uniquetag}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Identidade</h3>
+                            <h3 class="info-value">{$socio.partner_identity}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">CPF</h3>
+                            <h3 class="info-value">{$socio.partner_cpf}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Idade</h3>
+                            <h3 class="info-value">{$socio.partner_age}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Celular</h3>
+                            <h3 class="info-value phone-mask">{$socio.partner_mobphone}</h3>
+                        </div>
+                        <div class="info-box">
+                            <h3 class="info-title">Residencial</h3>
+                            <h3 class="info-value phone-mask">{$socio.partner_resphone}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Tipo associação</h3>
+                            <h3 class="info-value">{$socio.partner_assoctype}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Dia de pagamento</h3>
+                            <h3 class="info-value">{$socio.partner_paymentday}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Valor mensalidade</h3>
+                            <h3 class="info-value">{$socio.partner_monthlypayment}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Status</h3>
+                            <h3 class="info-value">{$socio.partner_status}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Data de registro</h3>
+                            <h3 class="info-value">{$socio.partner_dtregister}</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sub-card-category">
+                    <div class="row card-category-title">
+                        <h3>Imagens</h3>
+                    </div>
+                    <div class="image-info-box">
+                        <div class="img-box">
+                            {if="$socio.partner_profilepicture"}
+                            <img src="{$socio.partner_profilepicture}" alt="">
+                            <div class="img-box-caption">
+                                <p>Foto perfil</p>
+                                <a href="{$socio.partner_profilepicture}" target="blank">Visualizar</a>
+                            </div>
+                            {else}
+                            <div class="img-not-found-box">
+                                <p>Nenhuma imagem encontrada</p>
+                            </div>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="entity-address sub-card-category">
+                    <div class="card-category-title">
+                        <h3>Endereço</h3>
+                    </div>
+                    {if="$endereco != false"}
+                    <div class="info-items">
+
+                        <div class="info-box">
+                            <h3 class="info-title">Rua</h3>
+                            <h3 class="info-value">{$endereco.address_road}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Numero</h3>
+                            <h3 class="info-value">{$endereco.address_number}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Complemento</h3>
+                            <h3 class="info-value">{$endereco.address_complement}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Bairro</h3>
+                            <h3 class="info-value">{$endereco.address_district}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">CEP</h3>
+                            <h3 class="info-value">{$endereco.address_cep}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Cidade</h3>
+                            <h3 class="info-value">{$endereco.address_city}</h3>
+                        </div>
+
+                        <div class="info-box">
+                            <h3 class="info-title">Estado</h3>
+                            <h3 class="info-value">{$endereco.address_state}</h3>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="info-items">
+                        <div class="new-element-action">
+                            <a href="/admin/address/update{$endereco.address_id}">
+                                <button class="edit">Editar</button>
+                            </a>
+                        </div>
+                        <div class="new-element-action">
+                            <a href="/admin/address/delete{$endereco.address_id}" onclick="return confirm('Deseja realmente excluir este registro?')">
+                                <button class="delete">Excluir</button>
+                            </a>
+                        </div>
+                    </div>
+                    {else}
+                    <h3 style="padding-left: 30px; padding-bottom: 30px;">Nenhum endereço encontrado</h3>
+                    <div class="new-element">
+                        <a href="/admin/address/create{$socio.partner_id}" class="new-element-button">
+                            <button>
+                                Incluir novo
+                            </button>
+                        </a>
+                    </div>
+                    {/if}
+                </div>
+
+                <div class="entity-profile-bottom-depends sub-card-category">
+                    <div class="card-category-title">
+                        <h3>Dependentes</h3>
+                    </div>
+                    {if="$dependentes != false"}
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="font-weight: bolder;">ID</th>
+                                    <th>Nome</th>
+                                    <th>Grau</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {loop="$dependentes"}
+                                <tr>
+                                    <td style="font-weight: bolder;">{$value.dependent_id}</td>
+                                    <td>{$value.dependent_fullname}</td>
+                                    <td>{$value.dependent_familiarity}</td>
+                                    <td>
+                                        <a href="/admin/dependent/profile{$value.dependent_id}" class="small-action-btn">👁</a>
+                                        <a href="/admin/dependent/profile{$value.dependent_id}" class="action-btn">Visualizar</a>
+                                    </td>
+                                </tr>
+                                {/loop}
+                            </tbody>
+                        </table>
+                    </div>
+                    {else}
+                    <h3 style="padding-left: 30px; padding-bottom: 30px;">Nenhum familiar encontrado</h3>
+                    {/if}
+                    <div class="new-element">
+                        <a href="/admin/dependent/create{$socio.partner_id}" class="new-element-button">
+                            <button>
+                                Incluir novo
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="entity-profile-card-bottom card-category">
+                <div class="entity-profile-bottom-actions sub-card-category">
+                    <div class="card-category-title">
+                        <h3>
+                            Ações
+                        </h3>
+                    </div>
+                    <div class="info-items">
+                        <div class="new-element-action">
+                            <a href="">
+                                <button class="print">Visualizar</button>
+                            </a>
+                        </div>
+                        <div class="new-element-action">
+                            <a href="/admin/partner/update{$socio.partner_id}">
+                                <button class="edit">Editar</button>
+                            </a>
+                        </div>
+                        <div class="new-element-action">
+                            <a href="/admin/partner/delete{$socio.partner_id}" onclick="return confirm('Deseja realmente excluir este registro? Todos seus dependetes, endereço e animais serão excluidos')">
+                                <button class="delete">Excluir</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+<script src="_js/jquery-3.6.0.min.js"></script>
+<script src="_js/index.js"></script>
+
+</html>

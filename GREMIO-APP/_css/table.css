@@ -1,0 +1,136 @@
+table {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+table thead th {
+    font-weight: bold;
+    font-size: 12pt;
+    padding: 5px 10px;
+    color: var(--blue-l-2);
+}
+
+table tbody td {
+    font-size: 10pt;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: var(--white-g-l);
+    transition: all .3s ease-in-out;
+}
+
+table tbody td .small-action-btn {
+    background-color: var(--blue-l-3);
+    color: var(--white-b);
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14pt;
+    box-shadow: var(--box-shadow-2);
+}
+
+table tbody tr {
+    height: 60px;
+    transition: all .3s ease-in-out;
+}
+
+table tbody tr:hover {
+    background-color: var(--white-b-s);
+}
+
+table tbody tr:hover td {
+    color: var(--blue);
+    border-radius: 15px;
+}
+
+table tbody tr td:hover {
+    background-color: var(--white-b);
+}
+
+.td-photo {
+    position: relative;
+    padding: 0;
+    height: 60px;
+    width: 70px;
+}
+
+.table-photo {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    height: 45px;
+    width: 45px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.table-photo img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+}
+
+.view {
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid var(--blue-l-2);
+    color: var(--blue-l-2);
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+.view:hover {
+    background-color: var(--blue-l-2);
+    color: white;
+}
+
+.table-title {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+    color: var(--blue);
+    padding-left: 30px;
+}
+
+.table-sub-info {
+    font-size: 1.2rem;
+    color: var(--white-g-l);
+    padding-left: 30px;
+}
+
+.list-body-footer {
+    padding-left: 0px;
+}
+
+.action-btn {
+    display: none;
+}
+
+@media (min-width: 800px) {
+    table tbody td {
+        font-size: 13pt;
+    }
+}
+
+@media (min-width: 600px) {
+    table tbody td .small-action-btn {
+        display: none;
+    }
+    .action-btn {
+        display: block;
+        width: 90%;
+        margin: auto;
+        padding: 5px 0px;
+        border-radius: 20px;
+        background-color: var(--blue-l-3);
+        color: var(--white-b);
+        font-weight: 500;
+        text-decoration: none;
+        box-shadow: var(--box-shadow-1);
+    }
+}

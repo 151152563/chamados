@@ -1,0 +1,50 @@
+<div class="content-body">
+    <div class="profile-body">
+        <div class="entity-profile-card">
+            <div class="entity-profile-card-middle card-category">
+                <div class="entity-info sub-card-category">
+                    <div class="row card-category-title">
+                        <h3>Registro</h3>
+                    </div>
+                    <div class="info-items">
+                        <div class="info-box">
+                            <h3 class="info-title">Usuario</h3>
+                            <a href="/admin/user/profile{$registro.user_id}" class="profile-action-bt">{$registro.user_name}</a>
+                        </div>
+                        {if="$registro.log_operation == 'DL'"}
+                        <div class="info-box">
+                            <h3 class="info-title">Alvo da edição</h3>
+                            <a href="#" style="background-color: rgb(235, 65, 65); border: none;" class="profile-action-bt">{$registro.log_target}</a>
+                        </div>
+                        {else}
+                        <div class="info-box">
+                            <h3 class="info-title">Alvo da edição</h3>
+                            <a href="/admin/{$registro.log_targetobject}/profile{$registro.log_targetid}" class="profile-action-bt">{$registro.log_target}</a>
+                        </div>
+                        {/if}
+                        <div class="info-box">
+                            <h3 class="info-title">Identificador</h3>
+                            <h3 class="info-value">{$registro.log_uniquetag}</h3>
+                        </div>
+                        <div class="info-box">
+                            <h3 class="info-title">Operação</h3>
+                            <h3 class="info-value">{$registro.log_operation}</h3>
+                        </div>
+                        <div class="info-box full-description">
+                            <h3 class="info-title">Valores anteriores</h3>
+                            <h3 class="info-value">{$registro.log_beforedescription}</h3>
+                        </div>
+                        <div class="info-box full-description">
+                            <h3 class="info-title">Novos valores</h3>
+                            <h3 class="info-value">{$registro.log_afterdescription}</h3>
+                        </div>
+                        <div class="info-box">
+                            <h3 class="info-title">Registrado em</h3>
+                            <h3 class="info-value">{$registro.log_dtregister}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

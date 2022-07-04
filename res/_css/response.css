@@ -1,0 +1,223 @@
+.box-bg {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--white-b);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box{
+    background-color: var(--white-r);
+    width: 320px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    box-shadow: var(--box-shadow-2);
+}
+
+.input-box-header {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-title {
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 38pt;
+    letter-spacing: 4px;
+}
+
+.box-sub-title {
+    font-size: 12pt;
+    color: var(--blue-l-2);
+    margin-top: -10px;
+}
+
+.input-box-body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.input-box-body .message.success{
+    border: 1px solid rgb(63, 245, 47);
+
+    color: rgb(63, 245, 47);
+    text-align: center;
+    font-weight: 400;
+    padding: 20px 0px;
+    border-radius: 20px;
+}
+
+.input-box-body .message.error{
+    border: 1px solid rgb(245, 47, 47);
+
+    color: rgb(245, 47, 47);
+    text-align: center;
+    font-weight: 400;
+    padding: 20px 0px;
+    border-radius: 20px;
+}
+
+.box-form-group {
+    padding:30px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.box-input-group label {
+    margin-bottom: 5px;
+    color: var(--white-g-l);
+}
+.box-input-group input {
+    border-radius: 20px;
+    height: 35px;
+    outline: none;
+    border: 1px solid var(--white-g-l);
+    background-color: var(--white-r);
+    padding-left: 15px;
+    color: var(--white-g-l);
+    font-size: 13pt;
+}
+.box-input-group input:focus {
+    background-color: white;
+}
+
+.box-form-group .input-box-action {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.input-box-action a.back{
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 15px;
+    background-color: var(--white-g-l);
+    color: var(--white-r);
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.input-box-action a.back:hover {
+    background-color: var(--white-g-l-2);
+}
+
+.input-box-action .done {
+    padding: 8px 10px ;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: var(--blue-l-3);
+    font-size: 13pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--white-r);
+    transition: all .3s ease-in-out;
+}
+
+.input-box-action .done:hover {
+    cursor: pointer;
+    background-color: var(--blue-l-2);
+
+    
+}
+
+
+.input-box-action a.action {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    color: var(--white-g-l);
+    font-size: 10pt;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+.input-box-action a.action:hover {
+    color: var(--blue-l-3);
+    font-size: 13pt;
+    text-decoration: underline;
+}
+
+.input-box-footer {
+    /* background-color: blue; */
+    /* overflow: hidden; */
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom{
+    /* background-color: red; */
+    height: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-bottom a {
+    display: flex;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.footer-bottom .company-name {
+    color: var(--white-g-l);
+    font-size: 8pt;
+    transition: all .3s ease-in-out;
+}
+
+.footer-bottom a:hover .company-name {
+    text-decoration: underline;
+    color: var(--blue-l-3);
+    font-size: 10pt;
+}
+
+.footer-bottom .company-logo {
+    /* width: 30px; */
+    height: 20px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.footer-bottom .company-logo img {
+    height: 100%;
+    width: 100%;
+    /* border-radius: 50%; */
+}
+

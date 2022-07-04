@@ -1,0 +1,89 @@
+<div class="content-body">
+    <div class="register-box">
+        <div class="title-box">
+            <h3>Registrar usuario</h3>
+        </div>
+        <div class="content-box">
+            <form method="post" action="/admin/user/create" class="form-group" enctype="multipart/form-data">
+                <div class="input-group">
+                    <label for="user_name" class="label-input">Nome completo <span class="mandatory">*</span></label>
+                    <input type="text" class="text-input" id="user_name" name="user_name">
+                </div>
+                <div class="input-group">
+                    <label for="user_sector" class="label-input">Setor</label>
+                     <input type="text" class="text-input" id="user_sector" name="user_sector">
+                </div>
+                <div class="input-group">
+                    <label for="user_office" class="label-input">Cargo</label>
+                    <input type="text" class="text-input" id="user_office" name="user_office">
+                </div>
+                <div class="input-group">
+                    <label for="user_phone" class="label-input">Telefone <span class="mandatory">*</span></label>
+                    <input type="text" class="text-input telefone" id="user_phone" name="user_phone">
+                </div>
+                <div class="input-group">
+                    <label for="user_login" class="label-input">Login <span class="mandatory">*</span></label>
+                    <input type="text" class="text-input" id="user_login" name="user_login">
+                </div>
+                <div class="input-group">
+                    <label for="user_email" class="label-input">Email <span class="mandatory">*</span></label>
+                    <input type="email" class="text-input" id="user_email" name="user_email">
+                </div>
+                <div class="input-group">
+                    <label for="user_password" class="label-input">Senha <span class="mandatory">*</span></label>
+                    <input type="password" class="text-input" id="user_password" name="user_password">
+                </div>
+                <div class="input-group">
+                    <label for="verify_user_password" class="label-input">Senha novamente <span class="mandatory">*</span></label>
+                    <input type="password" class="text-input" id="verify_user_password" name="verify_user_password">
+                </div>
+
+                <div class="input-check-group" style="height: 120px; margin-bottom: 0px;">
+                    <span class="title-check">Administrador</span>
+                    <div class="row check-row">
+                        <div class="col-4-sm">
+                            <label class="check-container">SIM
+                                <input class="checkbox-single toggle-input" type="checkbox" name="yes"
+                                    onclick="toggleAdmin(this)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-4-sm">
+                            <label class="check-container">NÃO
+                                <input class="checkbox-single" type="checkbox" name="no" onclick="toggleAdmin(this)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='input-wrapper'>
+                    <img class="input-preview">
+                    <label for='input-file'>
+                        Selecione uma foto de perfil
+                    </label>
+                    <input id='input-file' type='file' value='' name="user_profilepicture" onchange="photoPreview(event)" />
+                </div>
+                <div class="form-mandatory">
+                    <p><span class="mandatory">*</span> Campos obrigatorios</p>
+                </div>
+                <div class="form-action">
+                    <button class="action-reset" type="reset" onclick="history.go(-1)">Cancelar</button>
+                    <button class="action-submit" type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<script>
+    function toggleAdmin(receviedElement) {
+
+        let checkboxes = document.querySelectorAll(".checkbox-single");
+        checkboxes.forEach(element => {
+            if (element != receviedElement) {
+                element.checked = false
+            }
+        });
+    }
+</script>

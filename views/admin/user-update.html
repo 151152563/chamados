@@ -1,0 +1,79 @@
+<div class="content-body">
+    <div class="register-box">
+        <div class="title-box">
+            <h3>Atualizar usuario</h3>
+        </div>
+        <div class="content-box">
+            <form method="post" action="" class="form-group" enctype="multipart/form-data">
+                <div class="input-group">
+                    <label for="user_name" class="label-input">Nome completo</label>
+                    <input type="text" class="text-input" id="user_name" name="user_name" value="{$usuario.user_name}">
+                </div>
+                <div class="input-group">
+                    <label for="user_phone" class="label-input">Telefone</label>
+                    <input type="text" class="text-input telefone" id="user_phone" name="user_phone" value="{$usuario.user_phone}">
+                </div>
+                <div class="input-group">
+                    <label for="user_login" class="label-input">Login</label>
+                    <input type="text" class="text-input" id="user_login" name="user_login" value="{$usuario.user_login}">
+                </div>
+                <div class="input-group">
+                    <label for="user_email" class="label-input">Email</label>
+                    <input type="email" class="text-input" id="user_email" name="user_email" value="{$usuario.user_email}">
+                </div>
+                {if="$administrador"}
+                <div class="input-group">
+                    <label for="user_office" class="label-input">Cargo</label>
+                    <input type="text" class="text-input" id="user_office" name="user_office" value="{$usuario.user_office}">
+                </div>
+                <div class="input-group">
+                    <label for="user_office" class="label-input">Setor</label>
+                    <input type="text" class="text-input" id="user_sector" name="user_sector" value="{$usuario.user_sector}">
+                </div>  
+                <div class="input-check-group" style="height: 120px; margin-bottom: 0px;">
+                    <span class="title-check">Administrador</span>
+                    <div class="row check-row">
+                        <div class="col-4-sm">
+                            <label class="check-container">SIM
+                                <input class="checkbox-single toggle-input" type="checkbox" name="yes"
+                                    onclick="toggleAdmin(this)" {if="$usuario.user_isadmin"}cheked{/if}>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-4-sm">
+                            <label class="check-container">NÃO
+                                <input class="checkbox-single" type="checkbox" name="no" onclick="toggleAdmin(this)" {if="$usuario.user_isadmin"}{else}checked{/if}>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                {/if}
+                <div class='input-wrapper'>
+                    <img class="input-preview">
+                    <label for='input-file'>
+                        Selecione uma foto de perfil
+                    </label>
+                    <input id='input-file' type='file' value='' name="user_profilepicture" onchange="photoPreview(event)" />
+                </div>
+
+                <div class="form-action">
+                    <button class="action-reset" type="reset">Cancelar</button>
+                    <button class="action-submit" type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<script>
+    function toggleAdmin(receviedElement) {
+
+        let checkboxes = document.querySelectorAll(".checkbox-single");
+        checkboxes.forEach(element => {
+            if (element != receviedElement) {
+                element.checked = false
+            }
+        });
+    }
+</script>

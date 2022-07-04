@@ -1,0 +1,72 @@
+<div class="content-body">
+    <div class="register-box">
+        <div class="title-box">
+            <h3>Registrar Animal</h3>
+        </div>
+        <div class="content-box">
+            <form action="" method="post" class="form-group" enctype="multipart/form-data">
+                <div class="input-group">
+                    <label for="animal_name" class="label-input">Nome</label>
+                    <input type="text" class="text-input" id="animal_name" name="animal_name">
+                </div>
+                <div class="input-group">
+                    <label for="animal_species" class="label-input">Especie <span class="mandatory">*</span></label>
+                    <input type="text" class="text-input" id="animal_species" name="animal_species">
+                </div>
+                <div class="input-group">
+                    <label for="animal_coat" class="label-input">Pelagem <span class="mandatory">*</span></label>
+                    <input type="text" class="text-input" id="animal_coat" name="animal_coat">
+                </div>
+                <div class="input-group">
+                    <label for="animal_age" class="label-input">Idade <span class="mandatory">*</span></label>
+                    <input type="text" class="text-input" id="animal_age" name="animal_age">
+                </div>
+                <div class="input-group">
+                    <label for="animal_markings" class="label-input">Marcações</label>
+                    <input type="text" class="text-input" id="animal_markings" name="animal_markings">
+                </div>
+                <div class="input-group">
+                    <label for="animal_note" class="label-input">Observação</label>
+                    <input type="text" class="text-input" id="animal_note" name="animal_note">
+                </div>
+                <div class='input-wrapper'>
+                    <img class="input-preview">
+                    <label for='input-file1'>
+                        Selecione uma foto da esquerda
+                    </label>
+                    <input class="input-photo" id='input-file1' type='file' value='' name="animal_leftpicture" onchange="photoPreview(event)" />
+                </div>
+                <div class='input-wrapper'>
+                    <img class="input-preview">
+                    <label for='input-file2'>
+                        Selecione uma foto da frontal
+                    </label>
+                    <input class="input-photo" id='input-file2' type='file' value='' name="animal_frontalpicture" onchange="photoPreview(event)" />
+                </div>
+                <div class='input-wrapper'>
+                    <img class="input-preview">
+                    <label for='input-file3'>
+                        Selecione uma foto direita
+                    </label>
+                    <input class="input-photo" id='input-file3' type='file' value='' name="animal_rightpicture" onchange="photoPreview(event)" />
+                </div>
+                <div class='input-wrapper'>
+                    <img class="input-preview">
+                    <label for='input-file4'>
+                        Selecione uma foto traseira
+                    </label>
+                    <input class="input-photo" id='input-file4' type='file' value='' name="animal_backpicture" onchange="photoPreview(event)" />
+                </div>
+                <div class="form-mandatory">
+                    <p><span class="mandatory">*</span> Campos obrigatorios</p>
+                </div>
+                <div class="form-action">
+                    <button class="action-reset" type="reset">Cancelar</button>
+                    <button class="action-submit" type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
