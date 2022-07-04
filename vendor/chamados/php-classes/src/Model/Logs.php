@@ -1,11 +1,11 @@
 <?php
 
-namespace gremio\Model;
+namespace chamados\Model;
 
-use \gremio\DB\Sql;
-use \gremio\Model;
+use \chamados\DB\Sql;
+use \chamados\Model;
 
-class Payment extends Model
+class Logs extends Model
 {
 
     public static function listAll()

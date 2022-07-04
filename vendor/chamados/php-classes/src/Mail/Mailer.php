@@ -1,5 +1,5 @@
 <?php
-namespace gremio;
+namespace chamados;
 
     use Rain\Tpl;
 

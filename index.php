@@ -1,13 +1,13 @@
 <?php
 
-use gremio\Model\Partner;
-use gremio\Model\Address;
-use gremio\Model\Dependent;
-use gremio\Model\Logs;
-use gremio\Model\Payment;
-use gremio\Model\User;
-use gremio\Page;
-use gremio\PageAdmin;
+use chamados\Model\Partner;
+use chamados\Model\Address;
+use chamados\Model\Dependent;
+use chamados\Model\Logs;
+use chamados\Model\Payment;
+use chamados\Model\User;
+use chamados\Page;
+use chamados\PageAdmin;
 
 session_start();
 require_once("vendor/autoload.php");
@@ -170,15 +170,6 @@ $app->get('/admin/partners', function () {
 	));
 });
 
-$app->get('/admin/dependents', function () {
-
-	$page = new PageAdmin();
-
-	$page->setTpl("dependents");
-});
-
-
-
 $app->get('/admin/users', function () {
 
 	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
@@ -290,34 +281,6 @@ $app->get('/admin/partner/delete:id', function ($id) {
 	exit;
 });
 
-$app->get('/admin/address/delete:id', function ($id) {
-
-	$address = new Address();
-
-	$address->listById($id);
-
-	$conductor_id = $address->getconductor_id();
-
-	$address->delete();
-
-	header("location: /admin/conductor/profile$conductor_id");
-	exit;
-});
-
-$app->get('/admin/dependent/delete:id', function ($id) {
-
-	$dependent = new Dependent();
-
-	$dependent->listById($id);
-
-	$partner_id = $dependent->getpartner_id();
-
-	$dependent->delete();
-
-	header("location: /admin/partner/profile$partner_id");
-	exit;
-});
-
 $app->get('/admin/user/delete:id', function ($id) {
 
 	$user = new User();
@@ -345,35 +308,6 @@ $app->get('/admin/partner/update:id', function ($id) {
 
 	$page->setTpl("partner-update", array(
 		"socio" => $partner->getValues()
-	));
-});
-
-$app->get('/admin/address/update:id', function ($id) {
-
-	$page = new PageAdmin();
-
-	$address = new Address();
-
-	$address->listById($id);
-
-	$page->setTpl("address-update", array(
-		"endereco" => $address->getValues()
-	));
-});
-
-$app->get('/admin/dependent/update:id', function ($id) {
-
-	$page = new PageAdmin();
-
-	$dependent = new Dependent();
-
-	$dependent->listById($id);
-
-	$familiarity = $dependent->getdependent_familiarity();
-
-	$page->setTpl("dependent-update", array(
-		"dependente" => $dependent->getValues(),
-		"familiaridade" => $familiarity
 	));
 });
 
@@ -409,22 +343,6 @@ $app->get('/admin/user/create', function () {
 	$page->setTpl("user-create");
 });
 
-$app->get('/admin/address/create:partner_id', function ($partner_id) {
-
-	$page = new PageAdmin();
-
-	$page->setTpl("address-create", array(
-		"condutor" => $partner_id
-	));
-});
-
-$app->get('/admin/dependent/create:partner_id', function ($partner_id) {
-
-	$page = new PageAdmin();
-
-	$page->setTpl("dependent-create");
-});
-
 
 // Get  create-end
 
@@ -440,52 +358,20 @@ $app->get('/admin/partner/profile:id', function ($id) {
 
 	$partner = new Partner();
 
-	$address = Address::listByPartnerId($id);
+	// $address = Address::listByPartnerId($id);
 
-	$dependents = Dependent::listByPartnerId($id);
+	// $dependents = Dependent::listByPartnerId($id);
 
 	$partner->get($id);
 
 
 	$page->setTpl("partner-profile", array(
-		"socio" => $partner->getValues(),
-		"endereco" => $address,
-		"dependentes" => $dependents
+		"socio" => $partner->getValues()
+		// "endereco" => $address
+		// "dependentes" => $dependents
 	));
 });
 
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-// TO FIX
-
-$app->get('/admin/dependent/profile:id', function ($id) {
-
-	$page = new PageAdmin();
-
-	$dependent = new Dependent();
-
-	$dependent->listById($id);
-
-	$partnerName = "GERVASIO";
-
-
-	$page->setTpl("dependent-profile", array(
-		"dependente" => $dependent->getValues(),
-		"socio" => $partnerName
-	));
-});
 
 $app->get('/admin/user/profile:id', function ($id) {
 
@@ -498,19 +384,6 @@ $app->get('/admin/user/profile:id', function ($id) {
 	$page->setTpl("user-profile", array(
 		"usuario" => $user->getValues(),
 		"administrador" => User::getUserIsAdmin()
-	));
-});
-
-$app->get('/admin/payment/profile:id', function ($id) {
-
-	$page = new PageAdmin();
-
-	$payment = new Payment();
-
-	$payment->get($id);
-
-	$page->setTpl("payment-profile", array(
-		"pagamento" => $payment->getValues()
 	));
 });
 
@@ -559,104 +432,6 @@ $app->post('/admin/user/update:id', function ($id) {
 	$user->updateUserSession($id);
 
 	header("location: /admin/user/profile$id");
-	exit;
-});
-
-$app->post('/admin/address/update:id', function ($id) {
-
-	$address = new Address();
-
-	$address->listById((int)$id);
-
-	if ($address->verifyField("address_road", "Rua", 2, $_POST["address_road"], 2, "C"));
-	if ($address->verifyField("address_number", "Numero", 1, $_POST["address_number"], 1, "C"));
-	if ($address->verifyField("address_district", "Bairro", 3, $_POST["address_district"], 3, "C"));
-
-	if (strlen($_POST["address_city"]) == 0) {
-		$_POST["address_city"] = "Uruguaiana";
-	}
-	if (strlen($_POST["address_state"]) == 0) {
-		$_POST["address_state"] = "RS";
-	}
-	if (strlen($_POST["address_complement"]) == 0) {
-		$_POST["address_complement"] = "CASA";
-	}
-	if (strlen($_POST["address_cep"]) == 0) {
-		$_POST["address_cep"] = "Nao informado";
-	}
-
-	$address->setData($_POST);
-
-	$address->update($id);
-
-	$partner_id = $address->getpartner_id();
-
-	header("location: /admin/partner/profile$partner_id");
-	exit;
-});
-
-$app->post('/admin/dependent/update:id', function ($id) {
-
-	$dependent = new Dependent();
-
-	$log = new Logs();
-
-	$dependent->listById((int)$id);
-
-	$prev_dependent = $dependent->getValues();
-
-	if (isset($_POST["conj"])) {
-		$_POST["dependent_familiarity"] = "cônjuge";
-	}
-	if (isset($_POST["chil"])) {
-		$_POST["dependent_familiarity"] = "filho/filha";
-	}
-	if (isset($_POST["par"])) {
-		$_POST["dependent_familiarity"] = "pai/mãe";
-	}
-	if (isset($_POST["other"])) {
-		$_POST["dependent_familiarity"] = $_POST["others"];
-	}
-
-	if ($dependent->verifyField("dependent_name", "Nome", 3, $_POST["dependent_name"], 3, "U", $dependent->getdependent_name()));
-
-	if (strlen($_POST["dependent_age"]) == 0) {
-		$tipo = "Erro";
-		$sucesso = '0';
-		$mensagem = "Idade não informada";
-		header("location: /admin/message?tipo=$tipo&sucesso=$sucesso&mensagem=$mensagem");
-		exit;
-	}
-
-	if (strlen($_POST["dependent_familiarity"]) == 0) {
-		$tipo = "Erro";
-		$sucesso = '0';
-		$mensagem = "Familiaridade não informada";
-		header("location: /admin/message?tipo=$tipo&sucesso=$sucesso&mensagem=$mensagem");
-		exit;
-	}
-
-	if (strlen($_POST["dependent_identity"]) == 0) {
-		$_POST["dependent_identity"] = "Não informado";
-	}
-	if (strlen($_POST["dependent_cpf"]) == 0) {
-		$_POST["dependent_cpf"] = "Não informado";
-	}
-	if (strlen($_POST["dependent_phone"]) == 0) {
-		$_POST["dependent_phone"] = "Não informado";
-	}
-	if (strlen($_POST["dependent_note"]) == 0) {
-		$_POST["dependent_note"] = "Não informado";
-	}
-	if (strlen($_POST["dependent_schooling"]) == 0) {
-		$_POST["dependent_schooling"] = "Não informado";
-	}
-
-	$dependent->setData($_POST);
-
-	$dependent->update($id);
-
-	header("location: /admin/dependent/profile$id");
 	exit;
 });
 
@@ -739,7 +514,6 @@ $app->post('/admin/user/create', function () {
 	exit;
 });
 
-
 // To finish
 $app->post('/admin/partner/create', function () {
 
@@ -754,22 +528,8 @@ $app->post('/admin/partner/create', function () {
 		$_POST["partner_phone"] = "Não informado";
 	}
 
-	// if ($partner->verifyField("partner_fullname", "Nome", 3, $_POST["partner_fullname"], 3, "C"));
-	// if ($partner->verifyField("partner_cpf", "CPF", 14, $_POST["partner_cpf"], 11, "C"));
-	// if ($partner->verifyField("partner_identity", "Identitade", 10, $_POST["partner_identity"], 10, "C"));
-	// if ($partner->verifyField("partner_mobphone", "Telefone celular", 0, $_POST["partner_mobphone"], 0, "C"));
-	// if ($partner->verifyField("partner_resphone", "Telefone residencial", 0, $_POST["partner_resphone"], 0, "C"));
-	// if ($partner->verifyField("partner_age", "Idade", 1, $_POST["partner_age"], 1, "C"));
 
 	$partner->setData($_POST);
-
-
-	// var_dump($partner->getpartner_paymentday());
-
-
-	// echo($partner->getDateForDatabase($partner->getpartner_paymentday()));
-	
-	// var_dump($partner);
 
 	$result = $partner->create();
 
@@ -780,82 +540,6 @@ $app->post('/admin/partner/create', function () {
 });
 
 // OKK
-$app->post('/admin/address/create:partner_id', function ($partner_id) {
-
-	$address = new Address();
-
-	$address->setaddress_uniquetag($address->getUniqueTag());
-
-	if ($address->verifyField("address_road", "Rua", 2, $_POST["address_road"], 2, "C"));
-	if ($address->verifyField("address_number", "Numero", 1, $_POST["address_number"], 1, "C"));
-	if ($address->verifyField("address_district", "Bairro", 3, $_POST["address_district"], 3, "C"));
-
-	if (strlen($_POST["address_city"]) == 0) {
-		$_POST["address_city"] = "Uruguaiana";
-	}
-	if (strlen($_POST["address_state"]) == 0) {
-		$_POST["address_state"] = "RS";
-	}
-	if (strlen($_POST["address_complement"]) == 0) {
-		$_POST["address_complement"] = "CASA";
-	}
-	if (strlen($_POST["address_cep"]) == 0) {
-		$_POST["address_cep"] = "Nao informado";
-	}
-
-	$address->setData($_POST);
-
-
-
-	$address->create($partner_id);
-
-	header("location: /admin/partner/profile$partner_id");
-	exit;
-});
-
-$app->post('/admin/dependent/create:partner_id', function ($conductor_id) {
-
-	$dependent = new Dependent();
-
-	$dependent->setdependent_uniquetag($dependent->getUniqueTag());
-
-	$_POST["dependent_familiarity"] = "";
-
-
-	if ($dependent->verifyField("dependent_fullname", "Nome", 3, $_POST["dependent_fullname"], 3, "C"));
-
-
-	if (strlen($_POST["dependent_age"]) == 0) {
-		$tipo = "Erro";
-		$sucesso = '0';
-		$mensagem = "Idade não informada";
-		header("location: /admin/message?tipo=$tipo&sucesso=$sucesso&mensagem=$mensagem");
-		exit;
-	}
-
-	
-
-	// if (strlen($_POST["dependent_identity"]) == 0) {
-	// 	$_POST["dependent_identity"] = "Não informado";
-	// }
-	// if (strlen($_POST["dependent_cpf"]) == 0) {
-	// 	$_POST["dependent_cpf"] = "Não informado";
-	// }
-	// if (strlen($_POST["dependent_celphone"]) == 0) {
-	// 	$_POST["dependent_phone"] = "Não informado";
-	// }
-	// if (strlen($_POST["dependent_mobphone"]) == 0) {
-	// 	$_POST["dependent_phone"] = "Não informado";
-	// }
-
-
-	$dependent->setData($_POST);
-
-	$result = $dependent->create($conductor_id)["dependent_id"];
-
-	header("location: /admin/dependent/profile$result");
-	exit;
-});
 
 
 // Post create-end

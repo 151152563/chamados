@@ -1,10 +1,10 @@
 <?php
 
-namespace gremio\Model;
+namespace chamados\Model;
 
 use Exception;
-use \gremio\DB\Sql;
-use \gremio\Model;
+use \chamados\DB\Sql;
+use \chamados\Model;
 use Throwable;
 
 class Partner extends Model

@@ -1,6 +1,6 @@
 <?php 
 
-namespace gremio\DB;
+namespace chamados\DB;
 
 class Sql {
 

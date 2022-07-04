@@ -1,10 +1,10 @@
 <?php
 
-namespace gremio\Model;
+namespace chamados\Model;
 
-use \gremio\DB\Sql;
-use \gremio\Model;
-use \gremio\Mailer;
+use \chamados\DB\Sql;
+use \chamados\Model;
+use \chamados\Mailer;
 
 class User extends Model
 {

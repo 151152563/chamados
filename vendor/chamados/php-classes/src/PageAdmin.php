@@ -1,6 +1,6 @@
 <?php 
 
-namespace gremio;
+namespace chamados;
 
 class PageAdmin extends Page {
 

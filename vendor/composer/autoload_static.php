@@ -7,16 +7,16 @@ namespace Composer\Autoload;
 class ComposerStaticInit2c28ce3c87fd942a7892518bb061033e
 {
     public static $prefixLengthsPsr4 = array (
-        'g' => 
+        'c' => 
         array (
-            'gremio\\' => 7,
+            'chamados\\' => 9,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'gremio\\' => 
+        'chamados\\' => 
         array (
-            0 => __DIR__ . '/..' . '/gremio/php-classes/src',
+            0 => __DIR__ . '/..' . '/chamados/php-classes/src',
         ),
     );
 
